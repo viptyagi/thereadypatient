@@ -1,8 +1,10 @@
 {
   "mappings": [
-    "/content/aem-boilerplate/:/"
+    "/content/thereadypatient/:/",
+    "/content/thereadypatient/configuration:/.helix/config.json",
+    "/content/thereadypatient/metadata:/metadata.json"
   ],
   "includes": [
-    "/content/aem-boilerplate/"
+    "/content/thereadypatient/"
   ]
 }
