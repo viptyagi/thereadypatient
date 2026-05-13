@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Promo Grid block — thereadypatient.com EDS migration
+   ========================================================================== */
+
+/* Block wrapper */
+.promo-grid-block {
+  width: 100%;
+  background-color: #e8e7e2;
+  padding: 64px 40px;
+  box-sizing: border-box;
+}
+
+/* Section heading */
+.pg-heading {
+  font-family: 'Butler', Georgia, serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: #00344b;
+  text-align: center;
+  margin: 0 0 44px;
+  line-height: 1.2;
+}
+
+/* 2×2 card grid */
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Card base
+   ========================================================================== */
+.pg-card {
+  position: relative;
+  min-height: 340px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.pg-card-content {
+  width: 100%;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+  background: none;
+}
+
+/* Dark gradient overlay only for image cards */
+.pg-card--dark-image .pg-card-content {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.80) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    transparent 100%
+  );
+  border-radius: 0 0 8px 8px;
+}
+
+/* Shared typography */
+.pg-card-heading {
+  font-family: 'Butler', Georgia, serif;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.pg-card-body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pg-card-cta {
+  display: inline-block;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 24px;
+  border: 2px solid;
+  border-radius: 4px;
+  align-self: flex-start;
+  transition: background-color 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Variant: dark-image
+   ========================================================================== */
+.pg-card--dark-image {
+  background-color: #2a2a2a;
+}
+
+/* Gradient overlay */
+.pg-card--dark-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.4) 55%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.pg-card--dark-image .pg-card-heading {
+  color: #ffffff;
+}
+
+.pg-card--dark-image .pg-card-body {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.pg-card--dark-image .pg-card-cta {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.pg-card--dark-image .pg-card-cta:hover {
+  background-color: #ffffff;
+  color: #00344b;
+}
+
+/* ==========================================================================
+   Variant: teal
+   ========================================================================== */
+.pg-card--teal {
+  background-color: #00344b;
+  align-items: center;
+  justify-content: center;
+}
+
+.pg-card--teal .pg-card-content {
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  background: none;
+}
+
+.pg-card--teal .pg-card-heading {
+  color: #ffffff;
+}
+
+.pg-card--teal .pg-card-body {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pg-card--teal .pg-card-cta {
+  border-color: #ffffff;
+  color: #ffffff;
+  align-self: center;
+}
+
+.pg-card--teal .pg-card-cta:hover {
+  background-color: #ffffff;
+  color: #00344b;
+}
+
+/* ==========================================================================
+   Variant: light
+   ========================================================================== */
+.pg-card--light {
+  background-color: #f8f7f1;
+  align-items: flex-start;
+}
+
+.pg-card--light .pg-card-content {
+  background: none;
+}
+
+.pg-card--light .pg-card-heading {
+  color: #00344b;
+}
+
+.pg-card--light .pg-card-body {
+  color: #555555;
+}
+
+.pg-card--light .pg-card-cta {
+  border-color: #00344b;
+  color: #00344b;
+}
+
+.pg-card--light .pg-card-cta:hover {
+  background-color: #00344b;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Variant: white
+   ========================================================================== */
+.pg-card--white {
+  background-color: #ffffff;
+  align-items: flex-start;
+}
+
+.pg-card--white .pg-card-content {
+  background: none;
+}
+
+.pg-card--white .pg-card-heading {
+  color: #00344b;
+}
+
+.pg-card--white .pg-card-body {
+  color: #555555;
+}
+
+.pg-card--white .pg-card-cta {
+  border-color: #00344b;
+  color: #00344b;
+}
+
+.pg-card--white .pg-card-cta:hover {
+  background-color: #00344b;
+  color: #ffffff;
+}
+
+/* CTA alignment for image-backed variants */
+.pg-card--dark-image .pg-card-cta,
+.pg-card--teal .pg-card-cta {
+  align-self: center;
+}
+
+/* ==========================================================================
+   Tablet — 640px to 899px
+   ========================================================================== */
+@media (min-width: 640px) and (max-width: 899px) {
+  .promo-grid-block {
+    padding: 48px 24px;
+  }
+
+  .pg-card-heading {
+    font-size: clamp(17px, 2vw, 20px);
+  }
+}
+
+/* ==========================================================================
+   Mobile — ≤ 639px
+   ========================================================================== */
+@media (max-width: 639px) {
+  .promo-grid-block {
+    padding: 36px 16px;
+  }
+
+  .pg-heading {
+    font-size: 26px;
+  }
+
+  .pg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pg-card {
+    min-height: 260px;
+  }
+
+  .pg-card--dark-image .pg-card-content {
+    padding: 24px 20px;
+  }
+}

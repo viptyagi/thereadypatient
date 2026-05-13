@@ -1,0 +1,110 @@
+{
+  "groups": [
+    {
+      "id": "thereadypatient",
+      "label": "TheReadyPatient Components",
+      "components": [
+        {
+          "title": "Hero",
+          "id": "hero",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Hero",
+                  "model": "hero"
+                }
+              }
+            }
+          },
+          "model": [
+            { "component": "text",     "name": "bg-image",  "label": "Background Image URL", "valueType": "string" },
+            { "component": "text",     "name": "heading",   "label": "Heading",               "valueType": "string" },
+            { "component": "richtext", "name": "body",      "label": "Body Text",             "valueType": "string" },
+            { "component": "text",     "name": "sub-body",  "label": "Sub-body Text",         "valueType": "string" },
+            { "component": "text",     "name": "cta-text",  "label": "CTA Button Text",       "valueType": "string" },
+            { "component": "text",     "name": "cta-href",  "label": "CTA Button URL",        "valueType": "string" }
+          ]
+        },
+        {
+          "title": "Cards",
+          "id": "cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards",
+                  "model": "cards"
+                }
+              }
+            }
+          },
+          "model": [
+            { "component": "text", "name": "section-heading", "label": "Section Heading", "valueType": "string" }
+          ]
+        },
+        {
+          "title": "Patient Story",
+          "id": "patient-story",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Patient Story",
+                  "model": "patient-story"
+                }
+              }
+            }
+          },
+          "model": [
+            { "component": "text", "name": "section-heading", "label": "Section Heading", "valueType": "string" },
+            { "component": "text", "name": "patient-name",    "label": "Patient Name",     "valueType": "string" },
+            { "component": "text", "name": "quote",           "label": "Quote",            "valueType": "string" },
+            { "component": "text", "name": "photo",           "label": "Photo URL",        "valueType": "string" },
+            { "component": "text", "name": "cta-text",        "label": "CTA Text",         "valueType": "string" },
+            { "component": "text", "name": "cta-href",        "label": "CTA URL",          "valueType": "string" }
+          ]
+        },
+        {
+          "title": "Promo Grid",
+          "id": "promo-grid",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Promo Grid",
+                  "model": "promo-grid"
+                }
+              }
+            }
+          },
+          "model": [
+            { "component": "text", "name": "section-heading", "label": "Section Heading", "valueType": "string" }
+          ]
+        },
+        {
+          "title": "Article Categories",
+          "id": "article-categories",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Article Categories",
+                  "model": "article-categories"
+                }
+              }
+            }
+          },
+          "model": [
+            { "component": "text", "name": "section-heading", "label": "Section Heading", "valueType": "string" }
+          ]
+        }
+      ]
+    }
+  ]
+}

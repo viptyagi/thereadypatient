@@ -1,0 +1,171 @@
+/* ============================================================
+   Hero Block — TheReadyPatient EDS
+   ============================================================ */
+
+.hero-block {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Wrapper carries the background image */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* Gradient overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(0, 20, 30, 0.75) 0%,
+    rgba(0, 20, 30, 0.68) 40%,
+    rgba(0, 20, 30, 0.20) 65%,
+    transparent 100%
+  );
+}
+
+/* Content panel */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 52%;
+  max-width: 600px;
+  padding: 48px 40px 48px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Allow content to push wrapper height if it overflows */
+  align-self: stretch;
+  justify-content: center;
+}
+
+/* Heading */
+.hero-heading {
+  font-family: 'Butler', Georgia, serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+/* Body copy */
+.hero-body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 14px;
+}
+
+/* Sub-body (bold) */
+.hero-subtext {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 32px;
+}
+
+/* CTA Button */
+.hero-cta {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: #00293B;
+  color: #ffffff;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.hero-cta:hover {
+  background-color: #00415e;
+  box-shadow: 0 4px 16px rgba(0, 41, 59, 0.40);
+  transform: translateY(-1px);
+}
+
+.hero-cta:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   Tablet — ≤ 900px
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero-wrapper {
+    min-height: 380px;
+  }
+
+  .hero-content {
+    width: 60%;
+    padding: 40px 32px 40px 40px;
+  }
+
+  .hero-heading {
+    font-size: clamp(22px, 4vw, 34px);
+  }
+}
+
+/* ============================================================
+   Mobile — ≤ 600px
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero-wrapper {
+    min-height: 320px;
+    background-position: 70% center;
+  }
+
+  .hero-overlay {
+    background: rgba(0, 20, 30, 0.65);
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 24px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: 28px;
+  }
+
+  .hero-body,
+  .hero-subtext {
+    font-size: 15px;
+  }
+
+  .hero-cta {
+    align-self: center;
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+  }
+}

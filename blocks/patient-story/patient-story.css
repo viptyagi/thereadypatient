@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Patient Story block — thereadypatient.com EDS migration
+   ========================================================================== */
+
+/* Block wrapper */
+.patient-story-block {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #e8e7e2;
+  padding: 72px 40px;
+  box-sizing: border-box;
+}
+
+/* Section heading */
+.ps-section-heading {
+  font-family: 'Butler', Georgia, serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: #00344b;
+  text-align: center;
+  margin: 0 0 52px;
+  line-height: 1.2;
+}
+
+/* Two-column flex row */
+.ps-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Text column */
+.ps-text {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Patient name */
+.ps-name {
+  font-family: 'Butler', Georgia, serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  color: #00344b;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Blockquote reset */
+.ps-quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: relative;
+}
+
+/* Decorative large quote marks */
+.ps-quote-mark {
+  font-family: 'Butler', Georgia, serif;
+  font-size: 90px;
+  line-height: 0.5;
+  color: #00344b;
+  opacity: 0.18;
+  display: block;
+  user-select: none;
+}
+
+.ps-quote-mark--open {
+  margin-bottom: -12px;
+}
+
+.ps-quote-mark--close {
+  text-align: right;
+  margin-top: -24px;
+}
+
+/* Quote body text */
+.ps-quote-text {
+  font-family: 'Butler', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.5;
+  color: #00344b;
+  margin: 0;
+  padding: 0 6px;
+  display: inline;
+}
+
+/* CTA button */
+.ps-cta {
+  display: inline-block;
+  background-color: #00344b;
+  color: #ffffff;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 30px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  align-self: flex-start;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ps-cta:hover {
+  background-color: #004d6e;
+  box-shadow: 0 4px 14px rgba(0, 52, 75, 0.3);
+}
+
+.ps-cta:focus-visible {
+  outline: 2px solid #00344b;
+  outline-offset: 3px;
+}
+
+/* Photo column */
+.ps-photo {
+  flex: 0 0 420px;
+  max-width: 420px;
+  /* Force portrait aspect ratio so landscape source images crop to show the face */
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.ps-photo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: block;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* ==========================================================================
+   Tablet — ≤ 900px
+   ========================================================================== */
+@media (max-width: 900px) {
+  .ps-inner {
+    gap: 36px;
+  }
+
+  .ps-photo {
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+}
+
+/* ==========================================================================
+   Mobile — ≤ 639px
+   ========================================================================== */
+@media (max-width: 639px) {
+  .patient-story-block {
+    padding: 40px 16px;
+    overflow-x: hidden;
+  }
+
+  .ps-section-heading {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .ps-inner {
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Photo stacks on top, full width, fixed height portrait */
+  .ps-photo {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;       /* landscape crop on mobile — fits the viewport */
+    min-height: unset;
+    order: -1;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .ps-photo-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-position: center 15%;
+  }
+
+  /* Text column takes full width */
+  .ps-text {
+    width: 100%;
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .ps-name {
+    font-size: 22px;
+  }
+
+  .ps-quote-text {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .ps-quote-mark {
+    font-size: 60px;
+  }
+
+  .ps-cta {
+    align-self: stretch;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

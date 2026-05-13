@@ -1,0 +1,246 @@
+/**
+ * styles.css — Global stylesheet for TheReadyPatient EDS Migration
+ * thereadypatient.com
+ */
+
+@import url('./fonts.css');
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Colors */
+  --color-primary:      #00344B; /* dark teal/navy — primary brand */
+  --color-primary-dark: #00293B;
+  --color-accent:       #307DA1; /* medium teal */
+  --color-bg:           #E8E7E2; /* warm off-white body background */
+  --color-bg-light:     #F8F7F1;
+  --color-white:        #ffffff;
+  --color-text:         #333333;
+  --color-text-muted:   #8C8C8C;
+
+  /* Typography */
+  --font-heading: 'Butler', Georgia, 'Times New Roman', serif;
+  --font-body:    'Roboto', Arial, Helvetica, sans-serif;
+
+  /* Layout */
+  --max-width:    1280px;
+  --gutter:       clamp(1rem, 4vw, 3rem);
+  --radius:       8px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px  rgba(0, 52, 75, 0.10);
+  --shadow-md: 0 4px 16px rgba(0, 52, 75, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 52, 75, 0.20);
+
+  /* Motion */
+  --transition: 0.2s ease;
+
+  /* Header height: 36px utility bar + 72px main header */
+  --header-height: 108px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Headings ──────────────────────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+/* ─── Links ─────────────────────────────────────────────────────────────── */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+  line-height: 1;
+}
+
+.btn.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: transparent;
+}
+
+.btn.primary:hover,
+.btn.primary:focus-visible {
+  background-color: var(--color-primary-dark);
+}
+
+.btn.outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn.outline:hover,
+.btn.outline:focus-visible {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+main {
+  min-height: 60vh;
+}
+
+/* ─── Sections ──────────────────────────────────────────────────────────── */
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+/* First section below the header gets top spacing to match reference site */
+main > .section:first-child {
+  margin-top: 40px;
+}
+
+/* But hero sections are full-bleed — remove the top margin and let them breathe naturally */
+main > .section:first-child.no-padding {
+  margin-top: 40px;
+}
+
+.section.bg-white {
+  background-color: var(--color-white);
+}
+
+.section.bg-light {
+  background-color: var(--color-bg-light);
+}
+
+.section.no-padding > .default-content-wrapper,
+.section.no-padding > [class$="-wrapper"] {
+  padding: 0;
+  max-width: 100%;
+}
+
+/* ─── Default content wrapper ───────────────────────────────────────────── */
+
+.default-content-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem var(--gutter);
+}
+
+@media (max-width: 768px) {
+  .default-content-wrapper {
+    padding: 2rem 1rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.appear .hero-block,
+body.appear .cards-block,
+body.appear .patient-story-block,
+body.appear .promo-grid-block,
+body.appear .article-categories-block {
+  animation: fadeInUp 0.4s ease both;
+}
