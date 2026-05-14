@@ -1,0 +1,4 @@
+# Helix configuration for thereadypatient
+stage:
+  sidekick:
+    host: main--thereadypatient--viptyagi.aem.page

@@ -1,54 +1,42 @@
-/**
- * fonts.css — Typography imports for TheReadyPatient
- *
- * Butler  → headings (h1–h6, display text)
- * Roboto  → body text, UI, navigation
- */
-
-/* ─── Roboto (Google Fonts) ───────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-
-/* ─── Butler (CDN Fonts) ──────────────────────────────────────────────────── */
-@import url('https://fonts.cdnfonts.com/css/butler');
-
 /*
- * ─── Self-hosted Butler (optional fallback) ───────────────────────────────
- * Uncomment the block below if you host Butler woff2/woff files locally
- * under /fonts/ and want to avoid the third-party CDN dependency.
- *
- * @font-face {
- *   font-family: 'Butler';
- *   font-weight: 400;
- *   font-style: normal;
- *   font-display: swap;
- *   src: url('/fonts/butler-regular.woff2') format('woff2'),
- *        url('/fonts/butler-regular.woff')  format('woff');
- * }
- *
- * @font-face {
- *   font-family: 'Butler';
- *   font-weight: 500;
- *   font-style: normal;
- *   font-display: swap;
- *   src: url('/fonts/butler-medium.woff2') format('woff2'),
- *        url('/fonts/butler-medium.woff')  format('woff');
- * }
- *
- * @font-face {
- *   font-family: 'Butler';
- *   font-weight: 700;
- *   font-style: normal;
- *   font-display: swap;
- *   src: url('/fonts/butler-bold.woff2') format('woff2'),
- *        url('/fonts/butler-bold.woff')  format('woff');
- * }
- *
- * @font-face {
- *   font-family: 'Butler';
- *   font-weight: 800;
- *   font-style: normal;
- *   font-display: swap;
- *   src: url('/fonts/butler-extrabold.woff2') format('woff2'),
- *        url('/fonts/butler-extrabold.woff')  format('woff');
- * }
+ * TheReadyPatient — Web Fonts
+ * Playfair Display (Butler substitute, headings) + Roboto (body/nav)
+ * Loaded lazily after LCP for performance
  */
+
+/* ── Roboto (body/nav) ───────────────────────────────────────────────────── */
+@font-face {
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/roboto-regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/roboto-medium.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/roboto-bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Playfair Display (Butler substitute, headings) ──────────────────────── */
+/* Loaded via Google Fonts CDN as Playfair Display is freely available */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap');
+
+/* Override heading font once Playfair Display has loaded */
+:root {
+  --heading-font-family: 'Playfair Display', playfair-fallback, Georgia, 'Times New Roman', serif;
+}

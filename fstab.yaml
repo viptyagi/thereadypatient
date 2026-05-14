@@ -1,0 +1,4 @@
+mountpoints:
+  /:
+    url: https://github.com/viptyagi/thereadypatient/tree/main
+    type: github

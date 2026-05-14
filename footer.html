@@ -1,19 +1,13 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-
-/**
- * loads and decorates the footer
- * @param {Element} block The footer block element
- */
-export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
-  if (fragment?.textContent?.includes('Copyright � 2021 Adobe')) {
-    fragment.replaceChildren();
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer</title>
+</head>
+<body>
+  <main>
+    <div>
       <h2>ReadyPatient</h2>
       <ul>
         <li><a href="/about-us.html">About Us</a></li>
@@ -38,15 +32,7 @@ export default async function decorate(block) {
         <a href="https://www.zimmerbiomet.com/en/corporate/consumer-health-data-privacy-policy.html">Consumer Health Data Privacy Policy</a>
         <a href="/sitemap.xml">Sitemap</a>
       </p>
-    `;
-    fragment.append(wrapper);
-  }
-
-  // decorate footer DOM
-  block.textContent = '';
-  const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
-  block.append(footer);
-}
-
+    </div>
+  </main>
+</body>
+</html>
