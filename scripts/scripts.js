@@ -1,7 +1,6 @@
 import {
   loadHeader,
   loadFooter,
-  decorateButtons,
   decorateIcons,
   decorateSections,
   decorateBlocks,
@@ -11,6 +10,38 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+
+/**
+ * Decorates standalone links as buttons.
+ * @param {Element} main The main element
+ */
+function decorateButtons(main) {
+  main.querySelectorAll('p a[href]').forEach((a) => {
+    a.title = a.title || a.textContent;
+    const p = a.closest('p');
+    const text = a.textContent.trim();
+    if (a.querySelector('img') || p.textContent.trim() !== text) return;
+    try {
+      if (new URL(a.href).href === new URL(text, window.location).href) return;
+    } catch { /* continue */ }
+    const strong = a.closest('strong');
+    const em = a.closest('em');
+    if (!strong && !em) return;
+    p.className = 'button-wrapper';
+    a.className = 'button';
+    if (strong && em) {
+      a.classList.add('accent');
+      const outer = strong.contains(em) ? strong : em;
+      outer.replaceWith(a);
+    } else if (strong) {
+      a.classList.add('primary');
+      strong.replaceWith(a);
+    } else {
+      a.classList.add('secondary');
+      em.replaceWith(a);
+    }
+  });
+}
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
