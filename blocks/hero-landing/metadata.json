@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-landing",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-12T13:52:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/",
+    "originPage": "homepage landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "landing-hero",
+    "imagePattern": "large",
+    "structure": "heading + paragraph + bold text + CTA"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph + bold text + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "landing pages with mission statements",
+      "homepage hero sections",
+      "pages with background image and text overlay"
+    ],
+    "notSuitableFor": [
+      "text-only hero sections",
+      "hero sections without background images",
+      "product detail pages"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-12T13:52:00.000Z"
+  }
+}

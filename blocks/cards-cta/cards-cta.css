@@ -1,0 +1,120 @@
+.cards-cta > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-cta > div > div {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+}
+
+.cards-cta > div > div > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cards-cta > div > div > div:first-child::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgb(0 52 75 / 80%), rgb(0 52 75 / 40%));
+}
+
+.cards-cta picture {
+  position: absolute;
+  inset: 0;
+}
+
+.cards-cta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards-cta > div > div > div:last-child {
+  position: relative;
+  z-index: 1;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.cards-cta h4 {
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.cards-cta p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  opacity: 0.9;
+}
+
+.cards-cta a:any-link {
+  display: inline-block;
+  padding: 8px 24px;
+  background-color: #fff;
+  color: var(--brand-primary, #00344b);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  align-self: flex-start;
+}
+
+.cards-cta a:hover {
+  background-color: var(--brand-primary, #00344b);
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 600px) {
+  .cards-cta > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .cards-cta > div > div {
+    min-height: 220px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-cta > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cards-cta > div > div {
+    min-height: 240px;
+  }
+
+  .cards-cta > div > div > div:last-child {
+    padding: 36px 32px;
+  }
+
+  .cards-cta h4 {
+    font-size: 26px;
+  }
+
+  .cards-cta p {
+    font-size: 15px;
+  }
+}

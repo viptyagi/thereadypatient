@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-category",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-12T13:52:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/",
+    "originPage": "homepage landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "category-navigation",
+    "imagePattern": "icon",
+    "structure": "6 cards in 2x3 grid with circular images and text labels"
+  },
+  "contentPattern": {
+    "structure": "image + text label + link per card",
+    "buttonCount": 0,
+    "imageCount": 6
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "category navigation grids",
+      "body part or topic selection cards",
+      "icon-based navigation with circular images"
+    ],
+    "notSuitableFor": [
+      "detailed content cards with descriptions",
+      "CTA cards with buttons",
+      "cards without images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-12T13:52:00.000Z"
+  }
+}

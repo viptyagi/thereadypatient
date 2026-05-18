@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-category",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-15T07:45:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee.html",
+    "originPage": "knee category landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "purpose": "category-hero",
+    "imagePattern": "large",
+    "structure": "heading + paragraph + image"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph + banner image (text left, image right)",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "category landing pages with hero banner",
+      "body-part landing pages (knee, hip, shoulder, etc.)",
+      "pages with dark background hero and side-by-side text + image layout"
+    ],
+    "notSuitableFor": [
+      "homepage hero with CTA buttons",
+      "testimonial or quote hero sections",
+      "text-only hero without images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-15T07:45:00.000Z"
+  }
+}

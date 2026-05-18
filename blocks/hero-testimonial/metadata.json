@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-testimonial",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-12T13:52:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/",
+    "originPage": "homepage landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "testimonial",
+    "imagePattern": "large",
+    "structure": "heading + quote + CTA"
+  },
+  "contentPattern": {
+    "structure": "heading + quote + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "patient testimonial sections",
+      "customer story highlights",
+      "quote sections with background images"
+    ],
+    "notSuitableFor": [
+      "top-of-page hero sections",
+      "hero sections without testimonial content",
+      "text-only quote sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-12T13:52:00.000Z"
+  }
+}

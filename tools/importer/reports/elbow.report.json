@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/elbow.html",
+  "path": "elbow",
+  "timestamp": "2026-05-15T07:59:56.609Z",
+  "title": "Elbow Articles",
+  "template": "category-landing",
+  "blocks": [
+    "hero-category",
+    "cards-article"
+  ]
+}

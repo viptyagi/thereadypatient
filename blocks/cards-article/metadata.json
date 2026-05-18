@@ -1,0 +1,41 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-15T07:45:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee.html",
+    "originPage": "knee category landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "article-listing",
+    "imagePattern": "large",
+    "structure": "3-column grid of article cards with image + category tag + title"
+  },
+  "contentPattern": {
+    "structure": "filter checkboxes + article count + card grid (image + tag + title) + pagination",
+    "buttonCount": 0,
+    "imageCount": 12
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article listing pages with filterable card grids",
+      "category landing pages showing article collections",
+      "body-part article index pages (knee, hip, shoulder, etc.)",
+      "content feeds with image thumbnails and category tags"
+    ],
+    "notSuitableFor": [
+      "category navigation cards with icons",
+      "CTA promotional cards with action buttons",
+      "simple card grids without filtering or pagination"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-15T07:45:00.000Z"
+  }
+}

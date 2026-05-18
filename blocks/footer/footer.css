@@ -1,20 +1,113 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
-}
-
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  background-color: var(--brand-primary, #00344b);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 footer .footer p {
+  margin: 0 0 8px;
+}
+
+footer .footer a:any-link {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+footer .footer a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* top section - 3 columns of links */
+footer .footer > div:first-child {
+  margin: auto;
+  max-width: 1200px;
+  padding: 40px 24px 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+footer .footer > div:first-child > div {
+  min-width: 0;
+}
+
+footer .footer > div:first-child strong {
+  display: block;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  opacity: 1;
+  color: #fff;
+}
+
+footer .footer > div:first-child p {
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+
+/* middle section - legal disclaimer */
+footer .footer > div:nth-child(2) {
+  margin: auto;
+  max-width: 1200px;
+  padding: 24px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+footer .footer > div:nth-child(2) p {
+  font-size: 11px;
+  line-height: 1.5;
+  opacity: 0.6;
   margin: 0;
 }
 
+/* bottom section - external links + copyright */
+footer .footer > div:last-child {
+  margin: auto;
+  max-width: 1200px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+footer .footer > div:last-child p {
+  font-size: 12px;
+  margin: 0 0 8px;
+  opacity: 0.7;
+}
+
+footer .footer > div:last-child p:last-child {
+  margin-top: 8px;
+  opacity: 0.5;
+}
+
+footer .footer > div:last-child a:any-link {
+  opacity: 0.7;
+}
+
+footer .footer > div:last-child a:any-link:hover {
+  opacity: 1;
+}
+
+@media (width >= 600px) {
+  footer .footer > div:first-child {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer > div:first-child {
+    padding: 40px 32px 32px;
+  }
+
+  footer .footer > div:nth-child(2) {
+    padding: 24px 32px;
+  }
+
+  footer .footer > div:last-child {
+    padding: 16px 32px;
   }
 }

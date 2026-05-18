@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/brain.html",
+  "path": "brain",
+  "timestamp": "2026-05-15T08:00:16.233Z",
+  "title": "Brain Articles",
+  "template": "category-landing",
+  "blocks": [
+    "hero-category",
+    "cards-article"
+  ]
+}

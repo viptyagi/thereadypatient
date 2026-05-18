@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/foot-ankle.html",
+  "path": "foot-ankle",
+  "timestamp": "2026-05-15T07:59:15.700Z",
+  "title": "Foot and Ankle Articles",
+  "template": "category-landing",
+  "blocks": [
+    "hero-category",
+    "cards-article"
+  ]
+}

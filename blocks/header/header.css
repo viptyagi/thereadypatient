@@ -1,9 +1,11 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #fff;
   width: 100%;
-  z-index: 2;
+  z-index: 10;
   position: fixed;
+  top: 0;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
 }
 
 header nav {
@@ -13,33 +15,34 @@ header nav {
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 24px;
+  gap: 0 16px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1200px;
   height: var(--nav-height);
-  padding: 0 24px;
+  padding: 0 16px;
   font-family: var(--body-font-family);
+  color: var(--brand-primary, #00344b);
 }
 
 header nav[aria-expanded='true'] {
   grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
+    'hamburger brand tools' var(--nav-height)
+    'sections sections sections' 1fr / auto 1fr auto;
   overflow-y: auto;
   min-height: 100dvh;
 }
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: sticky;
   }
 
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
+    align-items: center;
+    gap: 0 24px;
+    max-width: 1200px;
     padding: 0 32px;
   }
 
@@ -54,16 +57,28 @@ header nav p {
   line-height: 1;
 }
 
-header nav a:any-link {
-  color: currentcolor;
+header nav .nav-tools .default-content-wrapper p {
+  display: none;
 }
 
-/* hamburger */
+header nav a:any-link {
+  color: var(--brand-primary, #00344b);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+header nav a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+/* hamburger - on LEFT side */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
   display: flex;
   align-items: center;
+  order: -1;
 }
 
 header nav .nav-hamburger button {
@@ -72,11 +87,12 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: var(--brand-primary, #00344b);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -85,7 +101,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 22px;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -104,11 +120,11 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::after {
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
+  top: -7px;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
+  top: 7px;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon {
@@ -142,14 +158,32 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
+  flex-basis: 200px;
+  flex-shrink: 0;
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  text-align: center;
+}
+
+@media (width >= 900px) {
+  header .nav-brand {
+    text-align: left;
+    flex-basis: 220px;
+  }
+}
+
+header nav .nav-brand a {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--brand-primary, #00344b);
+  text-decoration: none;
+  letter-spacing: 0.5px;
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 180px;
   height: auto;
 }
 
@@ -165,24 +199,84 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  padding-top: 16px;
+}
+
+header nav .nav-sections .button,
+header nav .nav-sections .button-container {
+  all: unset;
 }
 
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: 14px;
+  margin: 0;
 }
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
+/* mobile accordion: nav-drop items get chevron and collapsed sub-menu */
+header nav .nav-sections ul > li.nav-drop {
+  cursor: pointer;
+  position: relative;
+  padding-right: 32px;
+}
+
+header nav .nav-sections ul > li.nav-drop > p {
+  pointer-events: none;
+}
+
+header nav .nav-sections ul > li.nav-drop::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentcolor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+header nav .nav-sections ul > li.nav-drop[aria-expanded='true']::after {
+  transform: rotate(-135deg);
+  top: 18px;
+}
+
+/* sub-menu hidden by default on mobile */
 header nav .nav-sections ul > li > ul {
+  display: none;
   margin-top: 0;
+  padding-left: 16px;
+  overflow: hidden;
+}
+
+/* sub-menu visible when accordion expanded */
+header nav .nav-sections ul > li[aria-expanded='true'] > ul {
+  display: block;
+  margin-top: 8px;
 }
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+  padding: 8px 0;
+  border-bottom: none;
+}
+
+header nav .nav-sections ul > li > ul > li a {
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+header nav .nav-sections ul > li > ul > li a:hover {
+  color: var(--brand-primary, #00344b);
+  opacity: 1;
 }
 
 @media (width >= 900px) {
@@ -194,6 +288,14 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
+    padding-top: 0;
+  }
+
+  header nav .nav-sections ul {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    align-items: center;
   }
 
   header nav .nav-sections .nav-drop {
@@ -206,31 +308,30 @@ header nav .nav-sections ul > li > ul > li {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0.5em;
+    top: 0.4em;
     right: 2px;
     transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
+    width: 5px;
+    height: 5px;
+    border: 1.5px solid currentcolor;
     border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
+    border-width: 1.5px 1.5px 0 0;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
     top: unset;
-    bottom: 0.5em;
+    bottom: 0.4em;
     transform: rotate(315deg);
-  }
-
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+    padding: 0;
+    border-bottom: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -241,32 +342,94 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -24px;
+    left: -16px;
     width: 200px;
     top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
+    padding: 12px 16px;
+    background-color: #fff;
     white-space: initial;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    z-index: 10;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -6px;
     left: 16px;
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #fff;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 6px 0;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    color: var(--text-color);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
+    color: var(--brand-primary, #00344b);
   }
 }
 
-/* tools */
+/* tools - utility links + search */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header nav .nav-tools .button,
+header nav .nav-tools .button-container {
+  all: unset;
+}
+
+header nav .nav-tools .nav-search-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--brand-primary, #00344b);
+  display: flex;
+  align-items: center;
+}
+
+header nav .nav-tools .nav-search-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentcolor;
+}
+
+@media (width >= 900px) {
+  header nav .nav-tools {
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  header nav .nav-tools .default-content-wrapper p {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  header nav .nav-tools .default-content-wrapper p a {
+    color: var(--brand-primary, #00344b);
+    font-weight: 500;
+  }
+}
+
+@media (width >= 1200px) {
+  header nav .nav-tools {
+    gap: 24px;
+  }
 }
