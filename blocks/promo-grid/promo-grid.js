@@ -22,7 +22,11 @@ export default function decorate(block) {
     const theme = cells[4]?.textContent?.trim() || 'light';
     const bgImage = cells[5]?.textContent?.trim();
 
-    if (title) cards.push({ title, description, ctaText, ctaHref, theme, bgImage });
+    if (title) {
+      cards.push({
+        title, description, ctaText, ctaHref, theme, bgImage,
+      });
+    }
   });
 
   if (heading) {
@@ -37,7 +41,7 @@ export default function decorate(block) {
 
   cards.forEach((card) => {
     const cardEl = document.createElement('div');
-    cardEl.className = `pg-card pg-card--${card.theme}`;
+    cardEl.className = `pg-card pg-${card.theme}`;
 
     if (card.bgImage) {
       cardEl.style.backgroundImage = `url('${card.bgImage}')`;
