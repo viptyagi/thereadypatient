@@ -1,0 +1,115 @@
+.patient-story {
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.patient-story .ps-section-heading {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  color: var(--brand-primary, #00344b);
+  margin-bottom: 32px;
+}
+
+.patient-story .ps-inner {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.patient-story .ps-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.patient-story .ps-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patient-story .ps-text {
+  text-align: center;
+}
+
+.patient-story .ps-name {
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--brand-primary, #00344b);
+  margin: 0 0 16px;
+}
+
+.patient-story .ps-quote {
+  margin: 0 0 20px;
+  padding: 0;
+  border: none;
+  font-style: italic;
+}
+
+.patient-story .ps-quote-text {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--brand-primary, #00344b);
+  margin: 0;
+}
+
+.patient-story .ps-quote-mark {
+  font-size: 32px;
+  color: var(--brand-primary, #00344b);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.patient-story .ps-cta {
+  display: inline-block;
+  padding: 10px 28px;
+  background-color: var(--brand-primary, #00344b);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.patient-story .ps-cta:hover {
+  background-color: var(--link-hover-color, #005a82);
+}
+
+@media (width >= 900px) {
+  .patient-story {
+    padding: 60px 32px;
+  }
+
+  .patient-story .ps-inner {
+    flex-direction: row;
+    text-align: left;
+    gap: 40px;
+  }
+
+  .patient-story .ps-text {
+    text-align: left;
+  }
+
+  .patient-story .ps-photo {
+    width: 280px;
+    height: 280px;
+  }
+
+  .patient-story .ps-name {
+    font-size: 36px;
+  }
+
+  .patient-story .ps-quote-text {
+    font-size: 22px;
+  }
+}
