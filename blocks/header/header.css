@@ -386,7 +386,9 @@ header .nav-search-icon {
   header .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul,
   header .nav-sections > ul > li[aria-expanded="true"] > ul {
     display: block;
-    animation: nav-dropdown-in 0.15s ease;
+    opacity: 1;
+    transform: translateY(0);
+    animation: nav-dropdown-in 0.15s ease both;
   }
 
   @keyframes nav-dropdown-in {
