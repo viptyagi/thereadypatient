@@ -364,10 +364,9 @@ header .nav-search-icon {
     display: none;
   }
 
-  /* sub-menu panel */
+  /* sub-menu panel — uses visibility transition so opacity animates */
   header .nav-sections .default-content-wrapper > ul > li > ul,
   header .nav-sections > ul > li > ul {
-    display: none;
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
@@ -380,20 +379,27 @@ header .nav-search-icon {
     border: 1px solid var(--brand-border, #d8d2c8);
     border-radius: 4px;
     box-shadow: 0 8px 28px rgb(0 0 0 / 14%);
-    transition: none;
+    /* collapsed state */
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease,
+      visibility 0s linear 0.15s;
   }
 
   header .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul,
   header .nav-sections > ul > li[aria-expanded="true"] > ul {
-    display: block;
+    visibility: visible;
     opacity: 1;
+    pointer-events: auto;
     transform: translateY(0);
-    animation: nav-dropdown-in 0.15s ease both;
-  }
-
-  @keyframes nav-dropdown-in {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease,
+      visibility 0s linear 0s;
   }
 
   header .nav-sections .default-content-wrapper > ul > li > ul > li,
